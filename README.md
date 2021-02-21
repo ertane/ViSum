@@ -1,4 +1,5 @@
 # ViSum
+[![Go Report Card](https://goreportcard.com/badge/github.com/ertane/ViSum)](https://goreportcard.com/report/github.com/ertane/ViSum)
 
 GUI for check integrity to downloaded files written with Golang.
  
