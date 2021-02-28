@@ -11,7 +11,7 @@ GUI for check integrity to downloaded files written with Golang.
 <br>
 
 ### Build from source:
-----------------------
+
 
 > open a command prompt or terminal
 > 
@@ -35,7 +35,7 @@ GUI for check integrity to downloaded files written with Golang.
 <br>
 
 ## Changes:
------------
+
 
 Added copy option for checksum. Closed issue [#1](https://github.com/ertane/ViSum/issues/1)
 
