@@ -55,6 +55,3 @@ Added copy option for checksum. Closed issue [#1](https://github.com/ertane/ViSu
 Code is distributed under MIT license, feel free to use it in your proprietary
 projects as well.
 
-<p align="center">
- [MIT](./LICENSE)
-=======
