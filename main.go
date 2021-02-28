@@ -46,7 +46,7 @@ func selectNewFile() *SelectFile {
 	return c
 }
 
-func showMD5Sum(lbl *widget.Label, cf string) {
+func showMD5Sum(lbl *widget.Entry, cf string) {
 	lbl.SetText("Please wait...")
 	file, _ := os.Open(cf)
 	defer file.Close()
@@ -56,7 +56,7 @@ func showMD5Sum(lbl *widget.Label, cf string) {
 	lbl.SetText(fmt.Sprintf("MD5 : %x", m.Sum(nil)))
 }
 
-func showSHA1Sum(lbl *widget.Label, cf string) {
+func showSHA1Sum(lbl *widget.Entry, cf string) {
 	lbl.SetText("Please wait...")
 	file, _ := os.Open(cf)
 	defer file.Close()
@@ -66,7 +66,7 @@ func showSHA1Sum(lbl *widget.Label, cf string) {
 	lbl.SetText(fmt.Sprintf("SHA1: %x", s1.Sum(nil)))
 }
 
-func showSHA2Sum(lbl *widget.Label, cf string) {
+func showSHA2Sum(lbl *widget.Entry, cf string) {
 	lbl.SetText("Please wait...")
 	file, _ := os.Open(cf)
 	defer file.Close()
@@ -83,20 +83,20 @@ func main() {
 
 	c := selectNewFile()
 
-	labelMD5 := widget.NewLabel("")
-	labelSHA1 := widget.NewLabel("")
-	labelSHA2 := widget.NewLabel("")
+	textMD5 := widget.NewEntry()
+	textSHA1 := widget.NewEntry()
+	textSHA2 := widget.NewEntry()
 
 	btnSum := widget.NewButton("Calculate", func() {
 		if c.out.Text != "No choosen file" {
-			go showMD5Sum(labelMD5, c.out.Text)
-			go showSHA1Sum(labelSHA1, c.out.Text)
-			go showSHA2Sum(labelSHA2, c.out.Text)
+			go showMD5Sum(textMD5, c.out.Text)
+			go showSHA1Sum(textSHA1, c.out.Text)
+			go showSHA2Sum(textSHA2, c.out.Text)
 		}
 	})
 
 	topui := container.NewVBox(c.out, container.NewHBox(c.add, btnSum))
-	bottomui := container.NewVBox(labelMD5, labelSHA1, labelSHA2)
+	bottomui := container.NewVBox(textMD5, textSHA1, textSHA2)
 	ui := container.NewVBox(topui, bottomui)
 	win.SetContent(ui)
 
